@@ -31,6 +31,8 @@ class Crypto extends Component {
 export default Crypto;
 
 {/* Child Component
-     7 variables for the values inside this.props.data, 
-     price at 100 at 2 nearest fixed decimal places
+     7 variables for the values inside this.props.data.
+
+JSX for name, symbol, price to nearest 2 decimal places,
+     and cryptocurrency price change in value over hour, 24 hours, and 7 days
 */}

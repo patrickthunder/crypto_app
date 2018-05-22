@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Tickers.css';
 import Crypto from './Crypto.js';
+import axios from 'axios';
 
 class Tickers extends Component {
     
@@ -46,6 +47,21 @@ class Tickers extends Component {
             ]
         };
     }
+
+    componentDidMount() {
+        this.fetchCryptoData();
+        this.interval = setInterval(() => this.fetchCryptoData(), 15 * 1000);
+    }
+
+    fetchCryptoData() {
+        axios.get("https://api.coinmarketcap.com/v1/ticker/")
+            .then(response => {
+                var wanted = ["bitcoin", "ethereum", "ripple", "litecoin"];
+                var result = response.data.filter(currency => wanted.includes(currency.id));
+                this.setState({data: result});
+            })
+            .catch(err => console.log(err));
+        }
 
     render() {
         let tickers = this.state.data.map((currency) =>
