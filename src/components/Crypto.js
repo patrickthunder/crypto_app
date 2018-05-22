@@ -23,7 +23,6 @@ class Crypto extends Component {
                 <p> {percent_change_7d}% 7 days</p> 
             </li>
         );
-
     }
 
 }

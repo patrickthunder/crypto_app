@@ -67,7 +67,7 @@ class Tickers extends Component {
         let tickers = this.state.data.map((currency) =>
              <Crypto data = {currency} key = {currency.id}/>
         );
-{/* key property is needed for react to keep track of each li */ }
+
         return ( 
             <div className = "tickers-container">
                 <ul className = "tickers"> {tickers} </ul> 
@@ -79,8 +79,27 @@ class Tickers extends Component {
 
     export default Tickers;
 
+    { /* key property is needed for react to keep track of each li */ }
+
 {/* Comments:
 The js map function inside state to iterate through each crypto creating li elements
 */ }
 
-{ /* data is property containing all of the data needed for a single cryptocurrency, to pass in from the parent component */ }
+{ /* data is property containing all of the data needed for a single cryptocurrency, 
+
+to pass in from the parent component */ }
+
+{
+    /* axios GET request to API coinmarketcap.com.
+    wanted array selected, set state of component with results of filtering data prop
+    
+    this.state.data is same piece of info in child component
+    once change the state, React will automatically reflect those changes.
+    */
+}
+
+{
+    /* 
+    call every 15 second interval to get updated data
+    add new crypto to app via wanted array */
+}
